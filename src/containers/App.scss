@@ -1,0 +1,11 @@
+html {
+  @apply h-screen;
+}
+
+body, #app {
+  @apply h-full bg-gray-500;
+}
+
+#app {
+  @apply flex;
+}
