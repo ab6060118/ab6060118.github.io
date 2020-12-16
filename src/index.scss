@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply h-screen;
+  @apply h-screen select-none;
 }
 
 body, #root {
