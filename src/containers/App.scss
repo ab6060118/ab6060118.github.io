@@ -1,11 +1,14 @@
-html {
-  @apply h-screen;
-}
+.menu-item {
+  @apply text-white h-16 flex items-center justify-center;
 
-body, #app {
-  @apply h-full bg-gray-500;
-}
+  &:hover {
+    @apply bg-gray-700;
+  }
+  &.active, &:hover {
+    @apply text-lime-500;
+  }
 
-#app {
-  @apply flex;
+  .menu-icon {
+    @apply fill-current w-8;
+  }
 }

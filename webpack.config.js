@@ -1,8 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (_env, options) => ({
   mode: 'development',
@@ -15,6 +14,9 @@ module.exports = (_env, options) => ({
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      Images: './src/images/',
+    },
   },
   module: {
     rules: [
@@ -25,11 +27,16 @@ module.exports = (_env, options) => ({
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          // 'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.svg$/,
+        loader: '@svgr/webpack',
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -41,6 +48,7 @@ module.exports = (_env, options) => ({
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new CleanWebpackPlugin({
       verbose: true,
     }),
@@ -51,7 +59,6 @@ module.exports = (_env, options) => ({
   ],
   optimization: {
     minimize: options.mode === 'production',
-    // minimizer: [new CssMinimizerPlugin({ sourceMap: false }), new UglifyJsPlugin({ sourceMap: true })],
   },
   devServer: {
     contentBase: './',
