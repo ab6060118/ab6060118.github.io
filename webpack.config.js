@@ -1,5 +1,4 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -10,6 +9,7 @@ module.exports = (_env, options) => ({
     index: './src/index.tsx',
   },
   output: {
+    path: './',
     filename: 'js/[hash].js',
   },
   resolve: {
@@ -49,9 +49,6 @@ module.exports = (_env, options) => ({
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin({
-      verbose: true,
-    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
@@ -61,6 +58,7 @@ module.exports = (_env, options) => ({
     minimize: options.mode === 'production',
   },
   devServer: {
+    host: '0.0.0.0',
     contentBase: './',
     overlay: true,
     watchContentBase: true,

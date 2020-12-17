@@ -1,5 +1,5 @@
 import React, { FC, SVGAttributes } from 'react';
-import { education, expereience } from '../data/resume';
+import { education, expereience, skills } from '../data/resume';
 import EducationIcon from '../images/mortarboard.svg';
 import SuitcaseIcon from '../images/suitcase.svg';
 import SkillsIcon from '../images/skills.svg';
@@ -28,25 +28,33 @@ const Resume:FC = () => (
         7 年網頁程式設計 / 4 年 JavaScript 經驗 / 3 年 PHP 經驗
       </span>
     </div>
-    <div className="flex flex-col items-center p-2 sm:flex-row sm:p-4">
+    <div className="flex flex-col items-center p-2 sm:p-4 sm:items-start">
       <div className="flex items-center space-x-4">
         <SkillsIcon className="w-8 text-green-300 fill-current" />
-        <span className="text-3xl ">技能</span>
+        <span className="text-3xl font-semibold">技能</span>
+      </div>
+      <div className="table mt-4">
+        {skills.map(({ key, value }) => (
+          <div className="table-row" key={key}>
+            <div className="table-cell whitespace-nowrap">{`${key}：`}</div>
+            <div className="table-cell pl-3">{value.join(', ')}</div>
+          </div>
+        ))}
       </div>
     </div>
     <div className="flex flex-col items-center flex-grow p-2 sm:flex-row sm:p-4 sm:items-start sm:space-y-0 space-y-7">
       {blocks.map(({ title, icon: Icon, data }) => (
-        <div className="flex flex-col items-center w-full sm:w-auto sm:items-start sm:flex-1 sm:w-1/2 space-y-3 sm:space-y-7">
+        <div key={title} className="flex flex-col items-center w-full sm:w-auto sm:items-start sm:flex-1 sm:w-1/2 space-y-3 sm:space-y-7">
           <div className="flex space-x-3">
             <Icon className="w-8 text-green-300 fill-current" />
-            <span className="text-2xl font-medium">{title}</span>
+            <span className="text-2xl font-semibold">{title}</span>
           </div>
           {data.map(({
             startYear, endYear, school, degree, department, company, title: companyTitle,
           }) => (
-            <div className="flex flex-col items-center sm:items-start">
+            <div key={department} className="flex flex-col items-center sm:items-start">
               <span className="text-sm text-green-300">{`${startYear} - ${endYear}`}</span>
-              <div className="flex flex-wrap sm:flex-nowrap space-x-1 sm:space-x-4">
+              <div className="flex flex-wrap font-semibold sm:flex-nowrap space-x-1 sm:space-x-4">
                 <span>{school || company}</span>
                 <span>{department}</span>
               </div>

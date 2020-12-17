@@ -41,3 +41,22 @@ export const education = [
     school: '大同大學',
   },
 ];
+
+export const skills = [
+  {
+    key: '程式語言',
+    value: ['JavaScript', 'PHP', 'Python'],
+  },
+  {
+    key: '前端框架',
+    value: ['React', 'jQuery', 'Angular'],
+  },
+  {
+    key: '版本控制',
+    value: ['Git'],
+  },
+  {
+    key: '工具',
+    value: ['Webpack', 'Docker Container', 'Virtualization(KVM)', 'GitLab CI', 'Google App Script', 'Google Cloud Function', 'Google App Engin', 'Google Compute Engin', 'Firebase'],
+  },
+];

@@ -9,7 +9,7 @@ import Resume from './Resume';
 
 const App:FC = () => (
   <div className="flex flex-grow h-full overflow-hidden text-white bg-gray-800 sm:rounded-xl max-w-screen-lg sm:h-3/4">
-    <div className="flex flex-col bg-gray-900 sm:w-16">
+    <div className="flex flex-col flex-shrink-0 w-12 bg-gray-900 sm:w-16">
       <div className="flex flex-col items-stretch justify-center flex-grow">
         <NavLink to="/" className="menu-item" exact>
           <AvatarIcon className="menu-icon" />
