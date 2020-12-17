@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "homepage": "https://ab6060118.github.io/resume",
   "dependencies": {
     "autoprefixer": "^10.1.0",
     "postcss": "^8.2.1",
@@ -50,7 +51,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack --mode production",
-    "dev": "NODE_ENV=development webpack serve --mode development"
+    "dev": "NODE_ENV=development webpack serve --mode development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -60,6 +63,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ab6060118/ab6060118.github.io/issues"
-  },
-  "homepage": "https://github.com/ab6060118/ab6060118.github.io#readme"
+  }
 }
