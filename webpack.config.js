@@ -1,4 +1,5 @@
 const path = require('path');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -9,8 +10,8 @@ module.exports = (_env, options) => ({
     index: './src/index.tsx',
   },
   output: {
-    path: './',
-    filename: 'js/[hash].js',
+    path: __dirname,
+    filename: '[name].js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -56,6 +57,9 @@ module.exports = (_env, options) => ({
   ],
   optimization: {
     minimize: options.mode === 'production',
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
   },
   devServer: {
     host: '0.0.0.0',
