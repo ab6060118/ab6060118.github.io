@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -11,7 +12,12 @@ module.exports = (_env, options) => ({
     index: './src/index.tsx',
   },
   output: {
+    path: `${__dirname}/dist`,
     filename: 'js/[hash].js',
+    environment: {
+      arrowFunction: false,
+      const: false,
+    },
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -49,8 +55,10 @@ module.exports = (_env, options) => ({
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new CleanWebpackPlugin({ verbose: true }),
+    new MiniCssExtractPlugin({
+      filename: 'css/[hash].css',
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
@@ -59,6 +67,7 @@ module.exports = (_env, options) => ({
   optimization: {
     minimize: options.mode === 'production',
     minimizer: [
+      new UglifyJsPlugin(),
       new CssMinimizerPlugin(),
     ],
   },
