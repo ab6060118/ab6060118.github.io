@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = (_env, options) => ({
   mode: 'development',
   devtool: options.mode === 'development' ? 'source-map' : false,
+  target: 'web',
   entry: {
     index: './src/index.tsx',
   },
@@ -34,8 +35,12 @@ module.exports = (_env, options) => ({
       {
         test: /\.scss$/,
         use: [
-          // 'style-loader',
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
           'css-loader',
           'postcss-loader',
           'sass-loader',
@@ -49,7 +54,8 @@ module.exports = (_env, options) => ({
         test: /\.(png|jpe?g|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
+          name: '[hash].[ext]',
+          outputPath: 'images',
         },
       },
     ],

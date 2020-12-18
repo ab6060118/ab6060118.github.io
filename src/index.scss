@@ -9,3 +9,8 @@ html {
 body, #root {
   @apply h-full bg-black flex items-center justify-center w-full;
 }
+
+.img-me {
+  @apply bg-cover bg-center bg-no-repeat;
+  background-image: url(images/me.jpg);
+}
