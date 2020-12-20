@@ -56,7 +56,11 @@ export const skills = [
     value: ['Git'],
   },
   {
+    key: '雲端服務',
+    value: ['Google App Script', 'Google Cloud Function', 'Google App Engin', 'Google Compute Engin', 'Firebase'],
+  },
+  {
     key: '工具',
-    value: ['Webpack', 'Docker Container', 'Virtualization(KVM)', 'GitLab CI', 'Google App Script', 'Google Cloud Function', 'Google App Engin', 'Google Compute Engin', 'Firebase'],
+    value: ['Webpack', 'Docker Container', 'Virtualization(KVM)', 'GitLab CI'],
   },
 ];

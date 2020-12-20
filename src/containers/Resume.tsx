@@ -23,6 +23,7 @@ const blocks:Array<{
 
 const Resume:FC = () => (
   <div className="flex flex-col flex-grow p-4 overflow-y-auto sm:p-6 divide-y-4 divide-black divide-opacity-25">
+    <span className="self-center page-title sm:self-start">履歷</span>
     <div className="p-2 sm:p-4">
       <span className="text-xl font-medium text-green-300">
         7 年網頁程式設計 / 4 年 JavaScript 經驗 / 3 年 PHP 經驗

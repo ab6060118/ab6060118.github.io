@@ -8,6 +8,7 @@ import FacebookIcon from '../images/facebook.svg';
 import SuitcaseIcon from '../images/suitcase.svg';
 import Profile from './Profile';
 import Resume from './Resume';
+import Works from './Works';
 
 const socialMedias = [
   {
@@ -38,9 +39,9 @@ const App:FC = () => (
         </NavLink>
       </div>
     </div>
-    <div className="relative flex-grow flex-shrink-0 hidden max-w-xs overflow-hidden bg-center bg-no-repeat bg-cover w-80 sm:flex group">
+    <div className="relative flex-grow flex-shrink-0 hidden max-w-xs overflow-hidden bg-center bg-no-repeat bg-cover w-80 sm:flex">
       <div className="flex-grow img-me opacity-90" />
-      <div className="absolute flex items-center justify-center w-full opacity-0 space-x-4 from-black bg-gradient-to-b group-hover:opacity-100 h-1/3 transition-opacity">
+      <div className="absolute flex items-center justify-center w-full space-x-4 from-black bg-gradient-to-b h-1/3 transition-opacity">
         {
           socialMedias.map(({ icon: Icon, url }) => (
             <a href={url} target="_blank" rel="noreferrer" className="flex w-12 h-12 p-3 text-white rounded-full hover:bg-gray-700" key={url}>
@@ -52,7 +53,7 @@ const App:FC = () => (
     </div>
     <div className="flex flex-grow">
       <Switch>
-        <Route path="/works" component={Profile} />
+        <Route path="/works" component={Works} />
         <Route path="/contact" component={Profile} />
         <Route path="/resume" component={Resume} />
         <Route path="/" component={Profile} exact />
