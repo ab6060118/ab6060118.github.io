@@ -1,7 +1,7 @@
 export enum Belone {
+  INWIN_STACK,
   QNAP,
   SIDE_PROJECT,
-  INTERN,
 }
 
 export const works = [
