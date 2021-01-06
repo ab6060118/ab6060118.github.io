@@ -1,5 +1,5 @@
 .menu-item {
-  @apply text-white h-16 flex items-center justify-center;
+  @apply flex items-center justify-center h-16 text-white;
 
   &:hover {
     @apply bg-gray-700;
@@ -9,10 +9,10 @@
   }
 
   .menu-icon {
-    @apply fill-current w-8;
+    @apply w-8 fill-current;
   }
 }
 
 .page-title {
-  @apply text-3xl font-semibold my-4;
+  @apply my-4 text-3xl font-semibold;
 }

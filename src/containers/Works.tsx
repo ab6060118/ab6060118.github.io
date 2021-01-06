@@ -13,7 +13,7 @@ const Works: FC = () => (
   <div className="flex flex-col items-center flex-grow p-4 sm:p-6 sm:items-start">
     <span className="flex-shrink-0 page-title">作品</span>
     <nav className="flex-shrink-0">
-      {[QNAP, INWIN_STACK, SIDE_PROJECT].map((key) => <span className="m-3">{tabStringMap[key]}</span>)}
+      {[QNAP, INWIN_STACK, SIDE_PROJECT].map((key) => <span className="m-3 active">{tabStringMap[key]}</span>)}
     </nav>
     <div className="flex flex-wrap">
       {
