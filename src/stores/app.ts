@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import {Belone} from 'src/data/works';
+import { Belone } from '../data/works';
 
 const appStore = createContext({
   workFilter: Belone.QNAP,
