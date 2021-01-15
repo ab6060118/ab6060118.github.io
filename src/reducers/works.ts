@@ -12,7 +12,7 @@ type UpdateAction = {
   value: typeof initState.filter
 };
 
-const worksReducer:Reducer<typeof initState, UpdateAction> = (state, action) => {
+const worksReducer:Reducer<typeof initState, UpdateAction> = (state = initState, action) => {
   switch (action.type) {
     case 'UPDATE_WORKS_FILTER':
       return {
