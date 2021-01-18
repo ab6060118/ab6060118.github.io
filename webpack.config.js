@@ -30,7 +30,12 @@ module.exports = (_env, options) => ({
     rules: [
       {
         test: /\.(ts|tsx)$/i,
-        use: ['babel-loader', 'ts-loader'],
+        use: ['babel-loader', {
+          loader: 'ts-loader',
+          options: {
+            onlyCompileBundledFiles: true,
+          },
+        }],
       },
       {
         test: /\.scss$/,
