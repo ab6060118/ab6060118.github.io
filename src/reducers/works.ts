@@ -1,8 +1,8 @@
 import { Reducer } from 'react';
-import { Belone } from 'src/data/works';
+import { Belong } from 'src/data/works';
 
 const initState = {
-  filter: Belone.QNAP,
+  filter: Belong.QNAP,
 };
 
 type Type = 'UPDATE_WORKS_FILTER';

@@ -36,7 +36,7 @@ const App:FC = () => (
           // <PhoneIcon className="menu-icon" />
         // </NavLink>
         }
-        <NavLink to="/works" className="menu-item" exact>
+        <NavLink to="/works" className="menu-item">
           <SuitcaseIcon className="menu-icon" />
         </NavLink>
         <NavLink to="/resume" className="menu-item" exact>
@@ -62,7 +62,8 @@ const App:FC = () => (
         // <Route path="/" component={Profile} exact />
         // <Route path="/contact" component={Profile} />
         }
-        <Route path="/works/:tab" component={Works} />
+        <Route exact path="/works" component={Works} />
+        <Route path="/works/:belong" component={Works} />
         <Route path="/resume" component={Resume} />
         <Route render={() => <Redirect to="/resume" />} />
       </Switch>
